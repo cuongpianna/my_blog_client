@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-header></app-header>
     <router-view v-title="title"/>
   </div>
 </template>
@@ -9,7 +8,7 @@
     import AppHeader from "../../components/app-header";
     export default {
         name: "MainLayout",
-      components: {AppHeader}
+        components: {AppHeader}
 
     }
 </script>
