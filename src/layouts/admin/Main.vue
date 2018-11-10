@@ -3,7 +3,7 @@
         <header-admin class="header-admin"></header-admin>
         <div class="admin-body">
             <side-bar-admin class="sidebar-admin"></side-bar-admin>
-            <router-view class="test"></router-view>
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -19,13 +19,11 @@ export default {
 
 <style>
     .admin-body{
-        display: flex;
-        flex-direction: column;
+        display: flex
     }
     .header-admin{
         width: 200px;
         height: 55px;
-        border-bottom: 1px solid black;
     }
     .sidebar-admin{
         width: 200px;
@@ -33,9 +31,6 @@ export default {
         height: 100%;
         color: white;
         /* padding: 12px 16px; */
-    }
-    .test{
-        float: left;
     }
 </style>
 

@@ -22,8 +22,7 @@
     margin: 0;
     width: 200px;
     list-style: none;
-    display: flex;
-    flex-direction: column
+
 }
 
 .sidebar-header{

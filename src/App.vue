@@ -22,4 +22,15 @@ export default {
   /* color: #2c3e50; */
   width: 100%;
 }
+ul {
+  list-style: none;
+}
+a{
+  text-decoration: none
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
 </style>
