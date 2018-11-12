@@ -15,7 +15,13 @@ export function deleteCategory(id){
 }
 
 export function createPost(post){
-    return axios.post(`${API_URL}/posts`, post)
+    // return axios.post(`${API_URL}/upload`, post)
+    return axios({
+        url: API_URL+ '/upload',
+        method: 'post',
+        data: post,
+        headers: { 'Content-Type': 'multipart/form-data' }
+    })
 }
 
 export function getPosts(){
