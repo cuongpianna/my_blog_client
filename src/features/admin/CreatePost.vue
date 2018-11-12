@@ -53,7 +53,13 @@ export default {
             var formdata = new FormData ();
             for(var _img in this.img_file ){
             formdata.append(_img, this.img_file[_img]);
-            console.log(formdata);
+            this.$store.dispatch('createPost', formdata)
+            .then((res)=>{
+                console.log(res);
+            })
+            .catch(error => {
+                console.log(error)
+            })
         }}
     }
     
