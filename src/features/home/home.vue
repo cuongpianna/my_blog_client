@@ -1,49 +1,33 @@
 <template>
   <div class="home">
-    <Post v-for="post in posts"
-    :title="post.title" :sub_body="post.sub_body" :time_stamp="post.time_stamp">
+    <app-header></app-header>
+    <Post v-for="(post, index) in posts" :title="post.title" v-bind:key="post.id"
+    :sub_body="post.sub_body" :time_stamp="post.time_stamp" class="post-container">
     </Post>
   </div>
 </template>
 
 <script>
   import Post from './components/Post';
+  import AppHeader from '@/components/app-header';
   import {mapState} from 'vuex'
-  import PostService from '../../api/PostService'
     export default {
-        name: "home",
-        data(){
-          return {
-            posts: []
-          }
-        },
-      computed: {
-        ...mapState(['title', 'test'])
-      }
-      ,
-      created(){
-        PostService.getPost()
-          .then(response =>{
-            this.posts = response.data.data
-          })
-      },
-      methods:{
-           getPost(){
-            PostService.getPost()
-              .then(response =>{
-                this.posts = response.data.data
-              });
-          }
+      name: "home",
+      computed: mapState({
+        posts: state => state.posts
+      }),
+      beforeMount() {
+        this.$store.dispatch('loadPosts')
       },
       components: {
-          Post
+          Post, AppHeader
       }
     }
 </script>
 
 <style scoped>
-.home{
-  width: 50%;
+.post-container{
+  width: 55%;
   margin-left: auto;
   margin-right: auto;
 }

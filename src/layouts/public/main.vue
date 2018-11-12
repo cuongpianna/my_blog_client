@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view v-title="title"/>
+    <router-view/>
   </div>
 </template>
 

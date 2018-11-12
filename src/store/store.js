@@ -1,13 +1,53 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import service from '../api'
+
+import {getPosts, createCategory, getCategories, deleteCategory} from '@/api'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state:{
-    title: 'My custom title',
-    test: service.getPost()
-  }
+const state = {
+  posts : [],
+  categories: []
+}
 
+const actions = {
+  loadPosts(context){
+    return getPosts().then((response) =>{
+      context.commit('setPosts', {posts: response.data})
+    })
+  },
+  createCategory(context, category){
+    return createCategory(category)
+  },
+  getCategories(context){
+    return getCategories().then((response) =>{
+      context.commit('setCategories', {categories: response.data.data})
+    })
+  },
+  deleteCategory(context, id){
+    console.log(id);
+    return deleteCategory(id)
+  }
+}
+
+const getters = {  
+  // reusable data accessors
+}
+
+const mutations = {
+  setPosts(state, payload){
+    state.posts = payload.posts
+  },
+  setCategories(state, payload){
+    state.categories = payload.categories
+  }
+}
+
+const store = new Vuex.Store({  
+  state,
+  actions,
+  mutations,
+  getters
 })
+
+export default store 

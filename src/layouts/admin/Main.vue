@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import SideBarAdmin from '@/components/admin/SideBar'
-import HeaderAdmin from '@/components/admin/Header'
+import SideBarAdmin from './components/SideBar'
+import HeaderAdmin from './components/Header'
 export default {
     name: 'Admin',
     components: {SideBarAdmin, HeaderAdmin}
@@ -28,7 +28,7 @@ export default {
     .sidebar-admin{
         width: 200px;
         background-color: #2f353a;
-        height: 100%;
+        height: 100vh;
         color: white;
         /* padding: 12px 16px; */
     }
