@@ -1,10 +1,12 @@
 <template>
     <div class="add-category">
+        <div class="admin-content-header">
+            <h4>Admin / Category</h4>
+        </div>
         <form action="">
             <div class="form-group">
                 <label for="name">Thể loại</label>
                 <input type="text" class="form-control" id="name" v-model="name">
-                {{name}}
             </div>
             <button type="submit" class="btn btn-primary" @click="createCategory">Đăng</button>
         </form>
@@ -20,8 +22,8 @@
                 </thead>
                 <tbody>
                     <tr v-for="(cate, index) in categories" v-bind:key="cate.id">
-                        <td>{{cate.id}}</td>
-                        <td>{{cate.name}}</td>
+                        <td>{{index+1}}</td>
+                        <td><a href="#">{{cate.name}}</a></td>
                         <td>{{cate.slug_name}}</td>
                         <td>
                             <a href="#">
@@ -74,6 +76,17 @@ export default {
 <style>
     .add-category{
         padding: 12px 16px;
+        width: 100%;
+    }
+
+    .admin-content-header{
+        background-color: #f7f7f7;
+        padding: 12px 16px;
+        border-bottom: 1px silver solid;
+        border-top: 1px silver solid;
+    }
+    .admin-content-header h4{
+        margin: 0;
     }
 </style>
 
